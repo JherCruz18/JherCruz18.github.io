@@ -1,0 +1,378 @@
+/* Fondo del cielo */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: #0a0a23;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #ffeb3b;
+    margin-top: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.sky {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #0a0a23;
+}
+
+.sun-moon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    left: 10%;
+    box-shadow: 0px 0px 50px #fff;
+    animation: sun-moon-glow 3s infinite alternate;
+}
+
+@keyframes sun-moon-glow {
+    0% {
+        box-shadow: 0px 0px 30px #fff;
+    }
+    100% {
+        box-shadow: 0px 0px 60px #fff;
+    }
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: star-flicker 2s infinite alternate;
+}
+
+@keyframes star-flicker {
+    0% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Efectos en las flores */
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    min-height: 300px;
+}
+
+.flower {
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+    position: relative;
+    animation: bloom 2s ease-in-out;
+}
+
+.flower .petal {
+    width: 50px;
+    height: 100px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(0deg);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.flower .center {
+    width: 40px;
+    height: 40px;
+    background-color: #ffeb3b;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    animation: shine 3s infinite alternate;
+}
+
+.flower:hover .petal {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.flower:hover .center {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shine {
+    0% {
+        box-shadow: 0px 10px 20px rgba(255, 255, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0px 20px 40px rgba(255, 255, 0, 1);
+    }
+}
+
+.dedicatoria {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #fff59d;
+    font-style: italic;
+}
+
+button {
+    background-color: #e91e63;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c2185b;
+}
+
+/* Media Queries para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .sun-moon {
+        width: 60px;
+        height: 60px;
+        top: 40px;
+        left: 15%;
+    }
+
+    .flower {
+        width: 90px;
+        height: 90px;
+    }
+
+    .flower .petal {
+        width: 40px;
+        height: 80px;
+    }
+
+    .flower .center {
+        width: 30px;
+        height: 30px;
+    }
+
+    .dedicatoria {
+        font-size: 1.2em;
+        padding: 10px;
+        font-size: 1.5em;
+    color: #fff;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    border-right: 2px solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    margin-top: 20px;
+    display: inline-block;
+    transition: color 2s ease-in-out;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #fff; }
+}
+
+/* Efecto para cambiar de color después de la animación */
+.dedicatoria:hover {
+    color: #ffeb3b;
+}
+
+/* Estilos para el carrusel */
+.carousel {
+    width: 80%;  /* Reducir el tamaño del carrusel para que sea más adecuado */
+    height: 250px;  /* Ajustar la altura */
+    margin: 20px auto;  /* Centrar el carrusel en la página */
+    overflow: hidden;
+    border-radius: 10px;  /* Bordes redondeados para un aspecto más suave */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Añadir una sombra para resaltar */
+    position: relative;
+}
+
+.carousel-images {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    animation: slide 9s infinite ease-in-out;  /* Añadir ease-in-out para una transición más suave */
+}
+
+.carousel-images img {
+    width: 33.33%;
+    height: 100%;
+    object-fit: cover;  /* Asegura que las imágenes mantengan su proporción */
+}
+
+/* Animación para el movimiento de las imágenes */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-33.33%); }
+    66% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
+}
+
+/* Estilos para los videos y categorías */
+.videos-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.video {
+    margin-bottom: 20px;
+}
+
+.video iframe {
+    width: 100%;
+    max-width: 600px;  /* Tamaño adecuado para pantallas más grandes */
+    height: 315px;
+    border-radius: 10px;  /* Bordes redondeados para los videos también */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra para los videos */
+}
+
+.video p {
+    font-size: 1.1em;
+    color: #555;  /* Texto más claro para la descripción */
+    margin-top: 10px;
+}
+
+/* Responsive para la galería */
+@media (max-width: 600px) {
+    .carousel {
+        height: 200px;  /* Ajustar altura en dispositivos móviles */
+    }
+
+    .carousel-images img {
+        width: 100%;
+    }
+
+    .video iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.dynamic-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #f39c12;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los subtítulos */
+.dynamic-text {
+    text-align: center;
+    font-size: 1.8em;
+    color: #2980b9;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    animation: textSlide 1.5s ease-in-out;
+    font-weight: bold;
+}
+
+/* Animación del texto */
+@keyframes textSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Animación de aparición gradual */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Mejora del diseño general de los videos */
+.video iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 315px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 250, 250, 0.1);
+}
+
+.video {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo responsive para que todo se vea bien en móviles */
+@media (max-width: 600px) {
+    .dynamic-title {
+        font-size: 1.8em;
+    }
+
+    .dynamic-text {
+        font-size: 1.4em;
+    }
+
+    .video iframe {
+        height: auto;
+    }
+
+    .video-description {
+        font-size: 1em;
+        color: white;  /* Cambiar el color a blanco */
+        margin-top: 10px;
+        text-align: justify;
+        line-height: 1.6;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+}
+
+    
